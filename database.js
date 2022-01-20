@@ -8,3 +8,5 @@
      conectionlimit:10
 
  })
+
+ module.exports = pool;
