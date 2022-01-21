@@ -12,6 +12,7 @@ module.exports = {
   },
   rules: {
     quotes: ['warn', 'single'],
-    'un-used-vars': ['warn', { vars: 'all', args: 'after-used' }]
+    'no-unused-vars': 0,
+    'no-trailing-spaces': 0
   }
 }
