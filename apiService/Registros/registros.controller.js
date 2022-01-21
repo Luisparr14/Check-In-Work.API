@@ -8,19 +8,19 @@ const getRegistros = async (req, res) => {
           id: 1,
           empleado: 1,
           fechayhora: '2020-01-01T00:00:00.000Z',
-          tipo: 'Entrada',
+          tipo: 'Entrada'
         },
         {
           id: 2,
           empleado: 2,
           fechayhora: '2020-01-01T00:00:00.000Z',
-          tipo: 'Entrada',
-        },
-      ],
-    },
-  });
+          tipo: 'Entrada'
+        }
+      ]
+    }
+  })
 }
 
 module.exports = {
-  getRegistros,
+  getRegistros
 }

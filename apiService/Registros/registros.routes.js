@@ -1,5 +1,5 @@
-const router = require('express').Router();
-const { getRegistros } = require('./registros.controller');
-router.get('/', getRegistros);
+const router = require('express').Router()
+const { getRegistros } = require('./registros.controller')
+router.get('/', getRegistros)
 
-module.exports = router;
+module.exports = router

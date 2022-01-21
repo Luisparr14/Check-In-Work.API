@@ -1,4 +1,4 @@
-const database = require('../../database/database');
+const database = require('../../database/database')
 const getEmpleados = async (req, res) => {
   return res.status(200).json({
     status: 'success',
@@ -7,18 +7,18 @@ const getEmpleados = async (req, res) => {
         {
           id: 1,
           nombre: 'Juan',
-          apellido: 'Perez',
+          apellido: 'Perez'
         },
         {
           id: 2,
           nombre: 'Pedro',
-          apellido: 'Perez',
-        },
-      ],
-    },
-  });
+          apellido: 'Perez'
+        }
+      ]
+    }
+  })
 }
 
 module.exports = {
-  getEmpleados,
+  getEmpleados
 }
