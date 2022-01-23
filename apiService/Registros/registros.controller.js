@@ -1,7 +1,7 @@
 const database = require('../../database/database')
 
 const checkIn = async (req, res) => {
-  const rfidCard = req.body.rfidCard
+  const { rfidCard } = req.body
   const querySelect = `SELECT * FROM tarjetas_rfid WHERE id_card = '${rfidCard}'`
   const queryInsert = `INSERT INTO registros (card) VALUES ('${rfidCard}')`
 
@@ -55,7 +55,7 @@ const getAllRecords = async (req, res) => {
 }
 
 const getAllRecordFromCard = async (req, res) => {
-  const card = req.params.card 
+  const { card } = req.params
   const query = `SELECT * FROM registros WHERE card = '${card}'`
   database.query(query, (err, result) => {
     if (err) {
@@ -80,10 +80,10 @@ const getAllRecordFromCard = async (req, res) => {
 }
 
 const getAllRecordsBetweenDates = async (req, res) => {
-  const startDate = new Date(req.params.startDate)
-  const endDate = new Date((parseInt(req.params.endDate) + 1).toString())
-  console.log(startDate)
-  console.log(endDate)
+  let { startDate, endDate } = req.params
+  startDate = new Date(startDate)
+  endDate = new Date((parseInt(endDate) + 1).toString())
+  
   const query = `SELECT * FROM registros WHERE dateandtime BETWEEN '${startDate.toJSON()}' AND '${endDate.toJSON()}'`
   database.query(query, (err, result) => {
     if (err) {
@@ -109,7 +109,7 @@ const getAllRecordsBetweenDates = async (req, res) => {
 
 module.exports = {
   checkIn,
-  getAllRecords, 
+  getAllRecords,
   getAllRecordFromCard,
   getAllRecordsBetweenDates
 }

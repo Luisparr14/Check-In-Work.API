@@ -21,7 +21,7 @@ const getAllEmployees = async (req, res) => {
 }
 
 const getEmployeeById = async (req, res) => {
-  const id = req.params.id
+  const { id } = req.params
   const query = `SELECT * FROM empleados WHERE id_empleado = ${id}`
 
   database.query(query, (err, result) => {
@@ -46,9 +46,8 @@ const getEmployeeById = async (req, res) => {
 }
 
 const assignCardToEmployee = async (req, res) => {
-  const rfidCard = req.body.rfidCard
-  const idEmployee = req.body.idEmpleado
-  const query = `UPDATE empleados SET rfid_card = '${rfidCard}' WHERE id_empleado = ${idEmployee}`
+  const { rfidCard, idEmpleado } = req.body
+  const query = `UPDATE empleados SET rfid_card = '${rfidCard}' WHERE id_empleado = ${idEmpleado}`
   const query2 = `SELECT * FROM tarjetas_rfid WHERE id_card = '${rfidCard}'`
 
   database.query(query2, (err, result) => {
@@ -88,8 +87,8 @@ const assignCardToEmployee = async (req, res) => {
 }
 
 const removeCardFromEmployee = async (req, res) => {
-  const idEmployee = req.body.idEmpleado
-  const query = `UPDATE empleados SET rfid_card = null WHERE id_empleado = ${idEmployee}`
+  const { idEmpleado } = req.body
+  const query = `UPDATE empleados SET rfid_card = null WHERE id_empleado = ${idEmpleado}`
 
   database.query(query, (err, result) => {
     if (err) {
