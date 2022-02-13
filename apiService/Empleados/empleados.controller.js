@@ -24,7 +24,6 @@ const createEmployee = async (req, res) => {
 const deleteEmployee = async (req, res) => {
   const { id } = req.params
   const queryDelete = `DELETE FROM empleados WHERE id_empleado = ${id}`
-  console.log(id)
   database.query(queryDelete, (err, result) => {
     if (err) {
       return res.status(500).json({
@@ -51,7 +50,6 @@ const getAllEmployees = async (req, res) => {
 
   database.query(query, (err, result) => {
     if (err) {
-      console.log(err)
       res.status(500).json({
         ok: false,
         message: 'Error al obtener los empleados',

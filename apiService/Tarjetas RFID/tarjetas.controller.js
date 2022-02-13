@@ -2,7 +2,6 @@ const database = require('../../database/database')
 
 const addCard = async (req, res) => {
   const { rfidCard } = req.body
-  console.log(rfidCard.trim())
   const queryInsert = `INSERT INTO tarjetas_rfid (id_card) VALUES ('${rfidCard.trim()}')`
 
   if (!rfidCard) {
@@ -14,7 +13,6 @@ const addCard = async (req, res) => {
 
   database.query(queryInsert, (err, result) => {
     if (err) {
-      console.log(err)
       return res.status(500).json({
         ok: false,
         message: 'Error al registrar la tarjeta'
