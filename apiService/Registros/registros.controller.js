@@ -2,7 +2,6 @@ const database = require('../../database/database')
 
 const checkIn = async (req, res) => {
   const { rfidCard } = req.body
-  console.log('RFID', rfidCard.trim())
   const querySelect = `SELECT * FROM tarjetas_rfid WHERE id_card = '${rfidCard.trim()}'`
   const queryInsert = `INSERT INTO registros (card) VALUES ('${rfidCard.trim()}')`
 

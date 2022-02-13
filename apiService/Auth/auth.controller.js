@@ -5,7 +5,6 @@ const Login = async (req, res) => {
   const query = `SELECT * FROM empleados inner join roles on roles.idrol=empleados.rol WHERE id_empleado = ${id}`
 
   database.query(query, (err, result) => {
-    console.log(result)
     if (err) {
       return res.status(500).json({
         ok: false,
