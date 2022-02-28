@@ -1,4 +1,2 @@
 # CHECK IN WORK API
-ESTE ES UN COMENTARIO
-[]: # Language: markdown
-[]: # Path: README.md
+API para la app Check in work, proporciona rutas endpoint para dar informacion a la aplicación.
